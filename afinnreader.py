@@ -24,3 +24,11 @@ def test():
         for term, value in dict.items():
             print(term + "->" + value)
 
+
+def saveList(filepath, list):
+    with open(filepath, 'wb') as f:
+        pickle.dump(list, f, pickle.HIGHEST_PROTOCOL)
+
+def readList(filepath):
+    list = pickle.load(open(filepath, "rb"))
+    return list
