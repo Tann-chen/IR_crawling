@@ -1,6 +1,20 @@
 from bs4 import BeautifulSoup
 import requests
 
+threshold = 1
+
+
+def recursive_get_link(links, i):
+    if i > threshold:
+        return
+    page_links = []
+    for link in links:
+        new_page_links = get_links_within_page(link)
+        page_links += new_page_links
+    return_page_links = recursive_get_link(page_links, i+1)
+
+    return recursive_get_link()
+
 
 def get_links_within_page(url):
     global links_lst
@@ -8,7 +22,7 @@ def get_links_within_page(url):
     current_page_links = []
 
     try:
-        response = requests.get(url, timeout=0.5)
+        response = requests.get(url, timeout=10)
         soup = BeautifulSoup(response.text, 'html.parser')
         # print(soup.prettify())
         a_tags = soup.findAll('a')
@@ -29,10 +43,9 @@ def get_links_within_page(url):
     return current_page_links
 
 
-def crawling(start_url, depth):
-
-
-
 if __name__ == '__main__':
-    links_lst = []
-    get_links_within_page('http://www.baidu.com')
+    links_lst = ['http://www.baidu.com']
+    links_lst = get_links_within_page('https://www.google.ca/?gfe_rd=cr&dcr=0&ei=YncXWvGsEu6BX8XKryA')
+    # links_lst = recursive_get_link(links_lst, 0)
+    for link in links_lst:
+        print(link)
