@@ -5,8 +5,6 @@ import string
 import nltk
 from nltk.stem.porter import PorterStemmer
 from nltk.corpus import stopwords
-from fileparser.fileparser import Fileparser
-from statistic.counter import Counter
 
 
 def cast_dict_2_str(dict):
@@ -122,6 +120,19 @@ def spimi(file_paths):
 
     print('====== SPIMI done ======')
     return output_file_index
+
+
+def sentiment_dictionary(term):
+
+    with open('afinn.pickle', 'rb') as f:
+        sentiment_dic = pickle.load(f)
+
+    if term in sentiment_dic:
+        score = sentiment_dic[term]
+    else:
+        score = 0
+
+    return score
 
 
 def blocks_merge(blocks_count):
