@@ -45,6 +45,20 @@ def calculate_rsvd(query, doc_set):
     return result
 
 
+def calculate_sent_score(content, sentiment_dic):
+
+    score = 0
+    count = 0
+
+    for token in content:
+        score += sentiment_dic[token]
+        count += 1
+
+    content_score = score / count
+
+    return content_score
+
+
 def overlap(lst_1, lst_2):
     result = []
     index_1 = 0
@@ -134,8 +148,6 @@ def search(query):
         top_10 = get_top_10(sorted)
         print(top_10)
         print('\n')
-
-
 
 
 if __name__ == '__main__':
