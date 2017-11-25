@@ -3,7 +3,6 @@ import nltk
 import re
 import string
 from math import *
-from nltk.stem.porter import PorterStemmer
 from nltk.corpus import stopwords
 
 
@@ -98,7 +97,6 @@ def get_top_10(origin):
 def search(query):
     global index
 
-    porter_stemmer = PorterStemmer()
     punctuations = set(string.punctuation)
     final_search = []
 

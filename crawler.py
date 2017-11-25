@@ -2,9 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import re
 import pickle
-import afinnreader
-
-threshold = 2
+import os
 
 
 def save_list(filepath, list):
@@ -20,6 +18,7 @@ def read_list(filepath):
 def recursive_get_link(links, i):
     global rootdir
     global file
+    global threshold
     file = 'output2.pickle'
 
     save_list(file, links)
@@ -129,11 +128,7 @@ def extract_text(target_url):
             page_content = stripcomment(page_content)
             page_content = stripurl(page_content)
 
-<<<<<<< HEAD
             if 'Page not found Contact Information' not in page_content and len(page_content.strip()) > 0:
-=======
-            if 'Page not found Contact Information' not in page_content and len(page_content)>0:
->>>>>>> af4d4df7d7ded8572d69397006a993ac47a2ebf4
                 with open(relative_path + str(index) + '.txt', 'w') as f:
                     f.write(page_content)
                 index = index + 1
@@ -144,7 +139,20 @@ def extract_text(target_url):
         pass
 
 
+def regulate_files():
+    input_path = 'archive/'
+    output_relative_path = ''
+    renamed_index = 0
+    for filename in os.listdir(input_path):
+        with open(filename, 'r', errors="ignore") as file_obj:
+            content = file_obj.read()
+            with open(output_relative_path + str(renamed_index) + '.txt', 'w') as f:
+                f.write(content)
+                renamed_index += 1
+
+
 if __name__ == '__main__':
+    threshold = 2
     # links_lst = []
     # get_links_within_page('http://cufa.net', links_lst)
     # extract_text('http://cufa.net/support-professor-louise-briand-faculty-representative-uqo-board-governors/')
@@ -152,46 +160,12 @@ if __name__ == '__main__':
     with open('links.pickle', 'rb') as f:
         links = pickle.load(f)
         links = list(set(links))
-<<<<<<< HEAD
-    temp = links[0:1000]
+
+    temp = links[20001:]
     index = 0
     relative_path = 'archive/'
     for url in links:
         print('parsing:' + url)
         extract_text(url)
-        if index >= 1000:
+        if index >= 10000:
             break
-=======
-    temp = links[2001:3000]
-    index = 1000
-    relative_path = 'archive/'
-    for url in links:
-        url = str(url)
-        if '.pdf' not in url:
-            print('parsing:' + url)
-            extract_text(url)
-            if index >= 1500:
-                break
->>>>>>> af4d4df7d7ded8572d69397006a993ac47a2ebf4
-
-
-        # def printPickle():
-        #     filepath = 'links.pickle'
-        #     links = afinnreader.readList(filepath)
-        #     print(len(links))
-        #     for link in links:
-        #         print(link)
-        #         # afinnreader.saveList('links.pickle', links)
-        #
-        #
-        # # def crawling(start_url, count_limit):
-        # if __name__ == '__main__':
-        # links_lst = []
-        # links_lst = ['http://www.cupfa.org']
-        # links_lst = recursive_get_link(links_lst, 0)
-        # links_lst = read_list('output2.pickle')
-        # print(len(links_lst))
-        # for link in links_lst:
-        #     print(link)
-        # links = recursive_get_link(links_lst, 0)
-        # printPickle()

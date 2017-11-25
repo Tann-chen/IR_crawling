@@ -1,9 +1,9 @@
 import sys
 import re
+import os
 import pickle
 import string
 import nltk
-from nltk.stem.porter import PorterStemmer
 from nltk.corpus import stopwords
 
 
@@ -35,79 +35,83 @@ def append_list(lst, append_to):
     return append_to
 
 
-def spimi(file_paths):
+def get_sentiment_value(term):
+    global sentiment_dict
+    if term in sentiment_dict:
+        score = sentiment_dict[term]
+    else:
+        score = 0
+    return score
+
+
+def add_sentiment_to_index(final_index):
+    for term, postings in final_index.items():
+        # postings is a dict
+        postings['sentiment'] = get_sentiment_value(term)
+
+
+def spimi(input_folder):
     global memory_size
     global block_size
     global relative_path
-    global counter
 
-
-    porter_stemmer = PorterStemmer()
-    file_parser = Fileparser()
     punctuations = set(string.punctuation)
     output_file_index = 0
     postings = {}
     doc_len_dict = {}
 
-    for one_file_path in file_paths:
-        with open(one_file_path, 'r', errors="ignore") as file_obj:
-            raw_content = file_obj.read()
-            file_parser.feed(raw_content)
-            parse_result = file_parser.parse_result
-            file_parser.close()
+    for filename in os.listdir(input_folder):
+        with open(filename, 'r', errors="ignore") as file_obj:
+            doc_content = file_obj.read()
+            doc_id = filename[:-4]
 
-        for doc_id, doc_content in parse_result.items():
-            print(one_file_path + ' [ ' + str(doc_id) + ' ] is being processed')
-            # remove all punctuation
-            removed_punc = ''.join(s for s in doc_content if s not in punctuations)
+        print(filename + ' is being processed (doc_id:' + doc_id + ')')
 
-            # remove all digits
-            removed_digit = re.sub(r'\d+', '', removed_punc)
+        # remove all punctuation
+        removed_punc = ''.join(s for s in doc_content if s not in punctuations)
 
-            # case fold
-            after_case_fold = removed_digit.lower()
+        # remove all digits
+        removed_digit = re.sub(r'\d+', '', removed_punc)
 
-            # tokenize
-            doc_tokens = nltk.word_tokenize(after_case_fold)
+        # case fold
+        after_case_fold = removed_digit.lower()
 
-            # record the doc length
-            doc_len_dict[doc_id] = len(doc_tokens)
+        # tokenize
+        doc_tokens = nltk.word_tokenize(after_case_fold)
 
-            # filter stop words
-            filtered_tokens = [token for token in doc_tokens if token not in stopwords.words('english')]
+        # record the doc length
+        doc_len_dict[doc_id] = len(doc_tokens)
 
-            # stemming
-            for token in filtered_tokens:
-                token = porter_stemmer.stem(token)
+        # filter stop words
+        filtered_tokens = [token for token in doc_tokens if token not in stopwords.words('english')]
 
-                # SPIMI
-                if token in postings.keys():
-                    postings_list = postings[token]  # postings_list is one dict{doc_id:tf,doc_id:tf}
-                    in_docs = postings_list.keys()
+        # add into posting
+        for token in filtered_tokens:
 
-                    if doc_id in in_docs:
-                        postings_list[doc_id] += 1  # tf += 1
-                    else:
-                        postings_list[doc_id] = 1
+            if token in postings.keys():
+                postings_list = postings[token]  # postings_list is {doc_id:tf, doc_id:tf, doc_id:tf}
+                in_docs = postings_list.keys()  # find all doc_id in the posting list
 
+                if doc_id in in_docs:  # if the doc_id is already in the posting list
+                    postings_list[doc_id] += 1  # tf += 1
                 else:
-                    new_postings_list = {doc_id: 1}
-                    postings[token] = new_postings_list
+                    postings_list[doc_id] = 1  # add the doc_id into posting list and tf = 1
 
-            # one doc done
-            if sys.getsizeof(postings) >= memory_size * 1024 * 1024:
-                # write into disk
-                with open(relative_path + str(output_file_index) + '.pickle', 'wb') as f:
-                    pickle.dump(sort_dict(postings), f, pickle.HIGHEST_PROTOCOL)
-                # with open(relative_path + str(output_file_index) + '.txt', 'w') as f:
-                #     f.write(cast_dict_2_str(sort_dict(postings)))
+            else:  # a now term in index
+                new_postings_list = {doc_id: 1}
+                postings[token] = new_postings_list
 
-                output_file_index += 1
-                # new postings
-                postings.clear()
+        # one doc done
+        if sys.getsizeof(postings) >= memory_size * 1024 * 1024:
+            # write into disk
+            with open(relative_path + str(output_file_index) + '.pickle', 'wb') as f:
+                pickle.dump(sort_dict(postings), f, pickle.HIGHEST_PROTOCOL)
+            # with open(relative_path + str(output_file_index) + '.txt', 'w') as f:
+            #     f.write(cast_dict_2_str(sort_dict(postings)))
 
-        # finish one file
-        parse_result.clear()
+            output_file_index += 1
+            # new postings
+            postings.clear()
 
     # write the final postings into block
     # with open(relative_path + str(output_file_index) + '.txt', 'w') as f:
@@ -122,19 +126,6 @@ def spimi(file_paths):
     return output_file_index
 
 
-def sentiment_dictionary(term):
-
-    with open('afinn.pickle', 'rb') as f:
-        sentiment_dic = pickle.load(f)
-
-    if term in sentiment_dic:
-        score = sentiment_dic[term]
-    else:
-        score = 0
-
-    return score
-
-
 def blocks_merge(blocks_count):
     global relative_path
 
@@ -147,10 +138,11 @@ def blocks_merge(blocks_count):
             block_index = block_index + 1
 
         if blocks_count == 1:
+            add_sentiment_to_index(pl_first)  # add sentiment value for every token
             with open('inverted_index.pickle', 'wb') as f:
                 pickle.dump(pl_first, f, pickle.HIGHEST_PROTOCOL)
 
-        else:   # multiple blocks
+        else:  # multiple blocks
             while block_index < blocks_count:
                 with open(relative_path + str(block_index) + '.pickle', 'rb') as f:
                     pl_second = pickle.load(f)
@@ -168,6 +160,7 @@ def blocks_merge(blocks_count):
                 while pl_1 < pl_first_len and pl_2 < pl_second_len:
                     if pl_first_terms[pl_1] == pl_second_terms[pl_2]:
                         temp_dict = pl_second[pl_second_terms[pl_2]]
+                        # merge pl_second's posting list to pl_first - add {} to {}
                         pl_first[pl_first_terms[pl_1]].update(temp_dict)
 
                         # sort
@@ -184,7 +177,7 @@ def blocks_merge(blocks_count):
                         pl_first[temp_term] = temp_dict
                         pl_2 = pl_2 + 1
 
-                if pl_1 < pl_first_len:   # pl_2 have done, not new for pl_1
+                if pl_1 < pl_first_len:  # pl_2 have done, not new for pl_1
                     pass
 
                 if pl_2 < pl_second_len:
@@ -199,6 +192,7 @@ def blocks_merge(blocks_count):
                 block_index = block_index + 1
 
             # finish all merging
+            add_sentiment_to_index(pl_first)  # add sentiment value for every token
             with open('inverted_index.pickle', 'wb') as f:
                 pickle.dump(pl_first, f, pickle.HIGHEST_PROTOCOL)
             # with open('inverted_index.txt', 'w') as f:
@@ -206,21 +200,19 @@ def blocks_merge(blocks_count):
             print('====== Merge done ======')
 
 
+
+
+
 if __name__ == '__main__':
     # init
-    counter = Counter()
+    with open('afinn.pickle', 'rb') as f:
+        sentiment_dict = pickle.load(f)
+
     relative_path = 'postings/'
     memory_size = 1  # MB
     block_size = 1  # MB
-    file_paths = ['reuters21578/reut2-000.sgm', 'reuters21578/reut2-001.sgm', 'reuters21578/reut2-002.sgm',
-                  'reuters21578/reut2-003.sgm', 'reuters21578/reut2-004.sgm', 'reuters21578/reut2-005.sgm',
-                  'reuters21578/reut2-006.sgm', 'reuters21578/reut2-007.sgm', 'reuters21578/reut2-008.sgm',
-                  'reuters21578/reut2-009.sgm', 'reuters21578/reut2-010.sgm', 'reuters21578/reut2-011.sgm',
-                  'reuters21578/reut2-012.sgm', 'reuters21578/reut2-013.sgm', 'reuters21578/reut2-014.sgm',
-                  'reuters21578/reut2-015.sgm', 'reuters21578/reut2-016.sgm', 'reuters21578/reut2-017.sgm',
-                  'reuters21578/reut2-018.sgm', 'reuters21578/reut2-019.sgm', 'reuters21578/reut2-020.sgm',
-                  'reuters21578/reut2-021.sgm']
-    # spimi(file_paths)
-    # blocks_merge(3)
+    input_folder = ''
 
+    # spimi(input_folder)
+    # blocks_merge(3)
     print("====== Done ======")
