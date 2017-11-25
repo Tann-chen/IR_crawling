@@ -129,11 +129,8 @@ def extract_text(target_url):
             page_content = stripcomment(page_content)
             page_content = stripurl(page_content)
 
-<<<<<<< HEAD
+
             if 'Page not found Contact Information' not in page_content and len(page_content.strip()) > 0:
-=======
-            if 'Page not found Contact Information' not in page_content and len(page_content)>0:
->>>>>>> af4d4df7d7ded8572d69397006a993ac47a2ebf4
                 with open(relative_path + str(index) + '.txt', 'w') as f:
                     f.write(page_content)
                 index = index + 1
@@ -149,31 +146,18 @@ if __name__ == '__main__':
     # get_links_within_page('http://cufa.net', links_lst)
     # extract_text('http://cufa.net/support-professor-louise-briand-faculty-representative-uqo-board-governors/')
 
-    with open('links.pickle', 'rb') as f:
+    with open('output2.pickle', 'rb') as f:
         links = pickle.load(f)
         links = list(set(links))
-<<<<<<< HEAD
-    temp = links[0:1000]
-    index = 0
+
+    temp = links[0:2000]
+    index = 20649
     relative_path = 'archive/'
-    for url in links:
-        print('parsing:' + url)
-        extract_text(url)
-        if index >= 1000:
-            break
-=======
-    temp = links[2001:3000]
-    index = 1000
-    relative_path = 'archive/'
-    for url in links:
+    for url in temp:
         url = str(url)
         if '.pdf' not in url:
             print('parsing:' + url)
             extract_text(url)
-            if index >= 1500:
-                break
->>>>>>> af4d4df7d7ded8572d69397006a993ac47a2ebf4
-
 
         # def printPickle():
         #     filepath = 'links.pickle'
