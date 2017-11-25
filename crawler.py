@@ -2,7 +2,8 @@ from bs4 import BeautifulSoup
 import requests
 import re
 import pickle
-import afinnreader
+import os
+
 
 threshold = 2
 
@@ -129,8 +130,8 @@ def extract_text(target_url):
             page_content = stripcomment(page_content)
             page_content = stripurl(page_content)
 
-
             if 'Page not found Contact Information' not in page_content and len(page_content.strip()) > 0:
+
                 with open(relative_path + str(index) + '.txt', 'w') as f:
                     f.write(page_content)
                 index = index + 1
@@ -146,18 +147,29 @@ if __name__ == '__main__':
     # get_links_within_page('http://cufa.net', links_lst)
     # extract_text('http://cufa.net/support-professor-louise-briand-faculty-representative-uqo-board-governors/')
 
-    with open('output2.pickle', 'rb') as f:
-        links = pickle.load(f)
-        links = list(set(links))
+    # with open('output2.pickle', 'rb') as f:
+    #     links = pickle.load(f)
+    #     links = list(set(links))
+    #
+    # temp = links[0:2000]
+    # index = 20649
 
-    temp = links[0:2000]
-    index = 20649
-    relative_path = 'archive/'
-    for url in temp:
-        url = str(url)
-        if '.pdf' not in url:
-            print('parsing:' + url)
-            extract_text(url)
+
+#     relative_path = 'archive/'
+#     for url in temp:
+#         url = str(url)
+#         if '.pdf' not in url:
+#             print('parsing:' + url)
+#             extract_text(url)
+
+
+    for num in range(20000, 21275):
+        with open('archive/' + str(num) + '.txt', 'r') as f:
+            for line in f.readlines():
+                if 'Forgot account' in line:
+                    os.remove('archive/' + str(num) + '.txt')
+                    break
+
 
         # def printPickle():
         #     filepath = 'links.pickle'
