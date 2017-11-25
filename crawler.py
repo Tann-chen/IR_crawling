@@ -6,6 +6,7 @@ import afinnreader
 
 threshold = 2
 
+
 def save_list(filepath, list):
     with open(filepath, 'wb') as f:
         pickle.dump(list, f, pickle.HIGHEST_PROTOCOL)
@@ -88,25 +89,25 @@ def extract_text(target_url):
         page_content = ''
 
         if len(soup.findAll('body')) > 0:
-            h1_tags = soup.body.findAll('h1')
-            for h1 in h1_tags:
-                page_content = page_content + ' ' + h1.text
-
-            h2_tags = soup.body.findAll('h2')
-            for h2 in h2_tags:
-                page_content = page_content + ' ' + h2.text
-
-            h3_tags = soup.body.findAll('h3')
-            for h3 in h3_tags:
-                page_content = page_content + ' ' + h3.text
-
-            h4_tags = soup.body.findAll('h4')
-            for h4 in h4_tags:
-                page_content = page_content + ' ' + h4.text
-
-            h5_tags = soup.body.findAll('h5')
-            for h5 in h5_tags:
-                page_content = page_content + ' ' + h5.text
+            # h1_tags = soup.body.findAll('h1')
+            # for h1 in h1_tags:
+            #     page_content = page_content + ' ' + h1.text
+            #
+            # h2_tags = soup.body.findAll('h2')
+            # for h2 in h2_tags:
+            #     page_content = page_content + ' ' + h2.text
+            #
+            # h3_tags = soup.body.findAll('h3')
+            # for h3 in h3_tags:
+            #     page_content = page_content + ' ' + h3.text
+            #
+            # h4_tags = soup.body.findAll('h4')
+            # for h4 in h4_tags:
+            #     page_content = page_content + ' ' + h4.text
+            #
+            # h5_tags = soup.body.findAll('h5')
+            # for h5 in h5_tags:
+            #     page_content = page_content + ' ' + h5.text
 
             b_tags = soup.body.findAll('b')
             for b in b_tags:
@@ -128,7 +129,7 @@ def extract_text(target_url):
             page_content = stripcomment(page_content)
             page_content = stripurl(page_content)
 
-            if 'Page not found Contact Information' not in page_content and len(page_content>0):
+            if 'Page not found Contact Information' not in page_content and len(page_content.strip()) > 0:
                 with open(relative_path + str(index) + '.txt', 'w') as f:
                     f.write(page_content)
                 index = index + 1
@@ -138,41 +139,42 @@ def extract_text(target_url):
         print("error")
         pass
 
+
 if __name__ == '__main__':
     # links_lst = []
     # get_links_within_page('http://cufa.net', links_lst)
     # extract_text('http://cufa.net/support-professor-louise-briand-faculty-representative-uqo-board-governors/')
 
-    with open('output2.pickle', 'rb') as f:
+    with open('links.pickle', 'rb') as f:
         links = pickle.load(f)
         links = list(set(links))
-    temp = links[2201:3000]
-    index = 1000
+    temp = links[0:1000]
+    index = 0
     relative_path = 'archive/'
     for url in links:
         print('parsing:' + url)
         extract_text(url)
-        if index >= 1500:
+        if index >= 1000:
             break
 
 
-# def printPickle():
-#     filepath = 'links.pickle'
-#     links = afinnreader.readList(filepath)
-#     print(len(links))
-#     for link in links:
-#         print(link)
-#         # afinnreader.saveList('links.pickle', links)
-#
-#
-# # def crawling(start_url, count_limit):
-# if __name__ == '__main__':
-    # links_lst = []
-    # links_lst = ['http://www.cupfa.org']
-    # links_lst = recursive_get_link(links_lst, 0)
-    # links_lst = read_list('output2.pickle')
-    # print(len(links_lst))
-    # for link in links_lst:
-    #     print(link)
-    # links = recursive_get_link(links_lst, 0)
-    # printPickle()
+        # def printPickle():
+        #     filepath = 'links.pickle'
+        #     links = afinnreader.readList(filepath)
+        #     print(len(links))
+        #     for link in links:
+        #         print(link)
+        #         # afinnreader.saveList('links.pickle', links)
+        #
+        #
+        # # def crawling(start_url, count_limit):
+        # if __name__ == '__main__':
+        # links_lst = []
+        # links_lst = ['http://www.cupfa.org']
+        # links_lst = recursive_get_link(links_lst, 0)
+        # links_lst = read_list('output2.pickle')
+        # print(len(links_lst))
+        # for link in links_lst:
+        #     print(link)
+        # links = recursive_get_link(links_lst, 0)
+        # printPickle()
