@@ -146,7 +146,7 @@ if __name__ == '__main__':
     with open('output2.pickle', 'rb') as f:
         links = pickle.load(f)
         links = list(set(links))
-    temp = links[2201:3000]
+    temp = links[2001:3000]
     index = 1000
     relative_path = 'archive/'
     for url in links:
