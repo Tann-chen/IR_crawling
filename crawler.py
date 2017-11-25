@@ -127,10 +127,11 @@ def extract_text(target_url):
         page_content = stripcomment(page_content)
         page_content = stripurl(page_content)
 
-        with open(relative_path + str(index) + '.txt', 'w') as f:
-            f.write(page_content)
-        index = index + 1
-        print(relative_path + 'finish writing to ' + str(index) + '.txt')
+        if 'Page not found Contact Information' in page_content:
+            with open(relative_path + str(index) + '.txt', 'w') as f:
+                f.write(page_content)
+            index = index + 1
+            print(relative_path + 'finish writing to ' + str(index) + '.txt')
 
     except requests.exceptions.RequestException as e:
         pass
