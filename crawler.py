@@ -128,7 +128,7 @@ def extract_text(target_url):
             page_content = stripcomment(page_content)
             page_content = stripurl(page_content)
 
-            if 'Page not found Contact Information' not in page_content:
+            if 'Page not found Contact Information' not in page_content and len(page_content>0):
                 with open(relative_path + str(index) + '.txt', 'w') as f:
                     f.write(page_content)
                 index = index + 1
@@ -143,7 +143,7 @@ if __name__ == '__main__':
     # get_links_within_page('http://cufa.net', links_lst)
     # extract_text('http://cufa.net/support-professor-louise-briand-faculty-representative-uqo-board-governors/')
 
-    with open('links.pickle', 'rb') as f:
+    with open('output2.pickle', 'rb') as f:
         links = pickle.load(f)
         links = list(set(links))
     temp = links[2201:3000]
