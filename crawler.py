@@ -128,7 +128,7 @@ def extract_text(target_url):
             page_content = stripcomment(page_content)
             page_content = stripurl(page_content)
 
-            if 'Page not found Contact Information' not in page_content and len(page_content>0):
+            if 'Page not found Contact Information' not in page_content and len(page_content)>0:
                 with open(relative_path + str(index) + '.txt', 'w') as f:
                     f.write(page_content)
                 index = index + 1
@@ -150,10 +150,12 @@ if __name__ == '__main__':
     index = 1000
     relative_path = 'archive/'
     for url in links:
-        print('parsing:' + url)
-        extract_text(url)
-        if index >= 1500:
-            break
+        url = str(url)
+        if '.pdf' not in url:
+            print('parsing:' + url)
+            extract_text(url)
+            if index >= 1500:
+                break
 
 
 # def printPickle():
