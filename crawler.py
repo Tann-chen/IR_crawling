@@ -128,7 +128,7 @@ def extract_text(target_url):
             page_content = stripcomment(page_content)
             page_content = stripurl(page_content)
 
-            if 'Page not found Contact Information' not in page_content:
+            if 'Page not found Contact Information' not in page_content and len(page_content) > 0:
                 with open(relative_path + str(index) + '.txt', 'w') as f:
                     f.write(page_content)
                 index = index + 1
@@ -146,13 +146,13 @@ if __name__ == '__main__':
     with open('links.pickle', 'rb') as f:
         links = pickle.load(f)
         links = list(set(links))
-    temp = links[2201:3000]
-    index = 1000
+    temp = links[500:1000]
+    index = 500
     relative_path = 'archive/'
     for url in links:
         print('parsing:' + url)
         extract_text(url)
-        if index >= 1500:
+        if index >= 1000:
             break
 
 
