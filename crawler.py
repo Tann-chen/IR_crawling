@@ -36,7 +36,7 @@ def recursive_get_link(links, i):
 def get_links_within_page(url):
     current_page_links = []
     try:
-        response = requests.get(url)
+        response = requests.get(url, timeout=2)
         soup = BeautifulSoup(response.text, 'html.parser')
         # print(soup.prettify())
         a_tags = soup.findAll('a')
@@ -82,52 +82,53 @@ def extract_text(target_url):
     global relative_path
 
     try:
-        response = requests.get(target_url)
+        response = requests.get(target_url, timeout=2)
         soup = BeautifulSoup(response.text, 'html.parser')
 
         page_content = ''
 
-        h1_tags = soup.findAll('h1')
+        h1_tags = soup.body.findAll('h1')
         for h1 in h1_tags:
             page_content = page_content + ' ' + h1.text
 
-        h2_tags = soup.findAll('h2')
+        h2_tags = soup.body.findAll('h2')
         for h2 in h2_tags:
             page_content = page_content + ' ' + h2.text
 
-        h3_tags = soup.findAll('h3')
+        h3_tags = soup.body.findAll('h3')
         for h3 in h3_tags:
             page_content = page_content + ' ' + h3.text
 
-        h4_tags = soup.findAll('h4')
+        h4_tags = soup.body.findAll('h4')
         for h4 in h4_tags:
             page_content = page_content + ' ' + h4.text
 
-        h5_tags = soup.findAll('h5')
+        h5_tags = soup.body.findAll('h5')
         for h5 in h5_tags:
             page_content = page_content + ' ' + h5.text
 
-        b_tags = soup.findAll('b')
+        b_tags = soup.body.findAll('b')
         for b in b_tags:
             page_content = page_content + ' ' + b.text
 
-        span_tags = soup.findAll('span')
+        span_tags = soup.body.findAll('span')
         for span in span_tags:
             page_content = page_content + ' ' + span.text
 
-        i_tags = soup.findAll('i')
+        i_tags = soup.body.findAll('i')
         for i in i_tags:
             page_content = page_content + ' ' + i.text
 
-        p_tags = soup.findAll('p')
+        p_tags = soup.body.findAll('p')
         for p in p_tags:
             page_content = page_content + ' ' + p.text
 
         page_content = striphtml(page_content)
         page_content = stripcomment(page_content)
         page_content = stripurl(page_content)
+        print(page_content)
 
-        if 'Page not found Contact Information' in page_content:
+        if 'Page not found Contact Information' not in page_content:
             with open(relative_path + str(index) + '.txt', 'w') as f:
                 f.write(page_content)
             index = index + 1
@@ -144,10 +145,14 @@ if __name__ == '__main__':
 
     with open('links.pickle', 'rb') as f:
         links = pickle.load(f)
+        temp = links[0:1000]
     index = 0
     relative_path = 'archive/'
     for url in links:
+        print('parsing:' + url)
         extract_text(url)
+        if index >= 1000:
+            break
 
 
 # def printPickle():
