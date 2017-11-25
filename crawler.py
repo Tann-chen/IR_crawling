@@ -129,6 +129,7 @@ def extract_text(target_url):
             page_content = stripurl(page_content)
 
             if 'Page not found Contact Information' not in page_content and len(page_content.strip()) > 0:
+
                 with open(relative_path + str(index) + '.txt', 'w') as f:
                     f.write(page_content)
                 index = index + 1
@@ -169,3 +170,4 @@ if __name__ == '__main__':
         extract_text(url)
         if index >= 10000:
             break
+
