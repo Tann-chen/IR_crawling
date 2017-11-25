@@ -113,10 +113,10 @@ def extract_text(target_url):
     return page_content
 
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
     # links_lst = []
     # get_links_within_page('http://cufa.net', links_lst)
-    extract_text('http://cufa.net/support-professor-louise-briand-faculty-representative-uqo-board-governors/')
+    # extract_text('http://cufa.net/support-professor-louise-briand-faculty-representative-uqo-board-governors/')
 
 
 def printPickle():
@@ -130,10 +130,14 @@ def printPickle():
 
 # def crawling(start_url, count_limit):
 if __name__ == '__main__':
+    links = afinnreader.readList('links.pickle')
+    for link in links:
+        extract_text(link)
+
     # links_lst = []
-    links_lst = ['https://www.concordia.ca/artsci/students/associations.html']
+    # links_lst = ['https://www.concordia.ca/artsci/students/associations.html']
     # links_lst = recursive_get_link(links_lst, 0)
     # for link in links_lst:
     #     print(link)
     # links = recursive_get_link(links_lst, 0)
-    printPickle()
+    # printPickle()
