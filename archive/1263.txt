@@ -1,0 +1,52 @@
+ Library Today's opening hours What's new Events Notices Feedback forms Available now 
+
+          The Campaign for Concordia
+        	
+ 
+
+          Log into...
+
+ 
+
+          Quick links
+
+ 
+
+          Undergraduate students
+
+ 
+
+          Graduate students
+
+ 
+
+          Faculty
+
+ CONCORDIA UNIVERSITY LIBRARY - 
+				Locations & phone numbers
+
+ Study resources Campus services What's New Faculties, Schools & Colleges Study resources Campus services What's New Faculties, Schools & Colleges     Renew books and more Reserve a space for your group online Request books from external libraries Manage your citations and create bibliographies Request a PDF of an article we have in our physical collection Upload documents to print on campus Online course readings Deposit a thesis or article   
+
+  
+
+  
+
+    Print Email Facebook Twitter         
+			   Back to top Montreal Quebec Canada Montreal Quebec Canada Provide feedback Montreal Quebec Canada Montreal Quebec Canada                          Webster Library:
+			
+
+				getHoursHomepage("lib-webteam@concordia.ca", "2017-11-24", "websterHoursID");
+				
+
+		Vanier Library:
+					
+
+				getHoursHomepage("r6ipsfcj9qiiivefnapse560ug@group.calendar.google.com", "2017-11-24", "vanierHoursID");
+				
+
+	  	Grey Nuns: 
+	  				
+
+	  				getHoursHomepage("c43s6171dc2eicj3jeh356f3sk@group.calendar.google.com", "2017-11-24","greyNunsHoursID");
+	  			
+ Locations & hours Thanks for your time. Please select your area of feedback.

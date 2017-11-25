@@ -87,52 +87,52 @@ def extract_text(target_url):
 
         page_content = ''
 
-        h1_tags = soup.body.findAll('h1')
-        for h1 in h1_tags:
-            page_content = page_content + ' ' + h1.text
+        if len(soup.findAll('body')) > 0:
+            h1_tags = soup.body.findAll('h1')
+            for h1 in h1_tags:
+                page_content = page_content + ' ' + h1.text
 
-        h2_tags = soup.body.findAll('h2')
-        for h2 in h2_tags:
-            page_content = page_content + ' ' + h2.text
+            h2_tags = soup.body.findAll('h2')
+            for h2 in h2_tags:
+                page_content = page_content + ' ' + h2.text
 
-        h3_tags = soup.body.findAll('h3')
-        for h3 in h3_tags:
-            page_content = page_content + ' ' + h3.text
+            h3_tags = soup.body.findAll('h3')
+            for h3 in h3_tags:
+                page_content = page_content + ' ' + h3.text
 
-        h4_tags = soup.body.findAll('h4')
-        for h4 in h4_tags:
-            page_content = page_content + ' ' + h4.text
+            h4_tags = soup.body.findAll('h4')
+            for h4 in h4_tags:
+                page_content = page_content + ' ' + h4.text
 
-        h5_tags = soup.body.findAll('h5')
-        for h5 in h5_tags:
-            page_content = page_content + ' ' + h5.text
+            h5_tags = soup.body.findAll('h5')
+            for h5 in h5_tags:
+                page_content = page_content + ' ' + h5.text
 
-        b_tags = soup.body.findAll('b')
-        for b in b_tags:
-            page_content = page_content + ' ' + b.text
+            b_tags = soup.body.findAll('b')
+            for b in b_tags:
+                page_content = page_content + ' ' + b.text
 
-        span_tags = soup.body.findAll('span')
-        for span in span_tags:
-            page_content = page_content + ' ' + span.text
+            span_tags = soup.body.findAll('span')
+            for span in span_tags:
+                page_content = page_content + ' ' + span.text
 
-        i_tags = soup.body.findAll('i')
-        for i in i_tags:
-            page_content = page_content + ' ' + i.text
+            i_tags = soup.body.findAll('i')
+            for i in i_tags:
+                page_content = page_content + ' ' + i.text
 
-        p_tags = soup.body.findAll('p')
-        for p in p_tags:
-            page_content = page_content + ' ' + p.text
+            p_tags = soup.body.findAll('p')
+            for p in p_tags:
+                page_content = page_content + ' ' + p.text
 
-        page_content = striphtml(page_content)
-        page_content = stripcomment(page_content)
-        page_content = stripurl(page_content)
-        # print(page_content)
+            page_content = striphtml(page_content)
+            page_content = stripcomment(page_content)
+            page_content = stripurl(page_content)
 
-        if 'Page not found Contact Information' not in page_content:
-            with open(relative_path + str(index) + '.txt', 'w') as f:
-                f.write(page_content)
-            index = index + 1
-            print(relative_path + 'finish writing to ' + str(index) + '.txt')
+            if 'Page not found Contact Information' not in page_content:
+                with open(relative_path + str(index) + '.txt', 'w') as f:
+                    f.write(page_content)
+                index = index + 1
+                print(relative_path + 'finish writing to ' + str(index) + '.txt')
 
     except requests.exceptions.RequestException as e:
         print("error")
@@ -145,7 +145,8 @@ if __name__ == '__main__':
 
     with open('links.pickle', 'rb') as f:
         links = pickle.load(f)
-        temp = links[2001:3000]
+        links = list(set(links))
+    temp = links[2201:3000]
     index = 1000
     relative_path = 'archive/'
     for url in links:
