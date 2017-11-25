@@ -1,10 +1,20 @@
 from bs4 import BeautifulSoup
 import requests
 import re
-import os
+import pickle
 import afinnreader
 
-threshold = 1
+threshold = 2
+
+
+def save_list(filepath, list):
+    with open(filepath, 'wb') as f:
+        pickle.dump(list, f, pickle.HIGHEST_PROTOCOL)
+
+
+def read_list(filepath):
+    list = pickle.load(open(filepath, "rb"))
+    return list
 
 
 def recursive_get_link(links, i):
@@ -12,7 +22,7 @@ def recursive_get_link(links, i):
     global file
     file = 'output2.pickle'
 
-    afinnreader.saveList(file, links)
+    save_list(file, links)
     if i > threshold:
         return
     page_links = []
@@ -26,7 +36,6 @@ def recursive_get_link(links, i):
 
 def get_links_within_page(url):
     current_page_links = []
-
     try:
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')
@@ -64,80 +73,104 @@ def stripcomment(data):
     return p.sub(' ', data)
 
 
+def stripurl(data):
+    p = re.compile(r"http\S+", flags=re.DOTALL)
+    return p.sub(' ', data)
+
+
 def extract_text(target_url):
-    response = requests.get(target_url)
-    soup = BeautifulSoup(response.text, 'html.parser')
+    global index
+    global relative_path
 
-    page_content = ''
+    try:
+        response = requests.get(target_url, timeout=2)
+        soup = BeautifulSoup(response.text, 'html.parser')
 
-    h1_tags = soup.findAll('h1')
-    for h1 in h1_tags:
-        page_content = page_content + ' ' + h1.text
+        page_content = ''
 
-    h2_tags = soup.findAll('h2')
-    for h2 in h2_tags:
-        page_content = page_content + ' ' + h2.text
+        h1_tags = soup.findAll('h1')
+        for h1 in h1_tags:
+            page_content = page_content + ' ' + h1.text
 
-    h3_tags = soup.findAll('h3')
-    for h3 in h3_tags:
-        page_content = page_content + ' ' + h3.text
+        h2_tags = soup.findAll('h2')
+        for h2 in h2_tags:
+            page_content = page_content + ' ' + h2.text
 
-    h4_tags = soup.findAll('h4')
-    for h4 in h4_tags:
-        page_content = page_content + ' ' + h4.text
+        h3_tags = soup.findAll('h3')
+        for h3 in h3_tags:
+            page_content = page_content + ' ' + h3.text
 
-    h5_tags = soup.findAll('h5')
-    for h5 in h5_tags:
-        page_content = page_content + ' ' + h5.text
+        h4_tags = soup.findAll('h4')
+        for h4 in h4_tags:
+            page_content = page_content + ' ' + h4.text
 
-    b_tags = soup.findAll('b')
-    for b in b_tags:
-        page_content = page_content + ' ' + b.text
+        h5_tags = soup.findAll('h5')
+        for h5 in h5_tags:
+            page_content = page_content + ' ' + h5.text
 
-    span_tags = soup.findAll('span')
-    for span in span_tags:
-        page_content = page_content + ' ' + span.text
+        b_tags = soup.findAll('b')
+        for b in b_tags:
+            page_content = page_content + ' ' + b.text
 
-    i_tags = soup.findAll('i')
-    for i in i_tags:
-        page_content = page_content + ' ' + i.text
+        span_tags = soup.findAll('span')
+        for span in span_tags:
+            page_content = page_content + ' ' + span.text
 
-    p_tags = soup.findAll('p')
-    for p in p_tags:
-        page_content = page_content + ' ' + p.text
+        i_tags = soup.findAll('i')
+        for i in i_tags:
+            page_content = page_content + ' ' + i.text
 
-    page_content = striphtml(page_content)
-    page_content = stripcomment(page_content)
+        p_tags = soup.findAll('p')
+        for p in p_tags:
+            page_content = page_content + ' ' + p.text
 
-    print(page_content)
-    return page_content
+        page_content = striphtml(page_content)
+        page_content = stripcomment(page_content)
+        page_content = stripurl(page_content)
+
+        if 'Page not found Contact Information' not in page_content:
+            with open(relative_path + str(index) + '.txt', 'w') as f:
+                f.write(page_content)
+            index = index + 1
+            print(relative_path + 'finish writing to ' + str(index) + '.txt')
+
+    except requests.exceptions.RequestException as e:
+        print("error")
+        pass
 
 
 # if __name__ == '__main__':
-    # links_lst = []
-    # get_links_within_page('http://cufa.net', links_lst)
-    # extract_text('http://cufa.net/support-professor-louise-briand-faculty-representative-uqo-board-governors/')
+#     # links = afinnreader.readList('links.pickle')
+#     # for link in links:
+#     #     extract_text(link)
+#     # extract_text('http://cufa.net/support-professor-louise-briand-faculty-representative-uqo-board-governors/')
+#
+#     with open('links.pickle', 'rb') as f:
+#         links = pickle.load(f)
+#     temp = links[2801:3000]
+#     index = 1500
+#     relative_path = 'archive/'
+#     for url in links:
+#         extract_text(url)
 
 
-def printPickle():
-    filepath = 'links.pickle'
-    links = afinnreader.readList(filepath)
-    print(len(links))
-    for link in links:
-        print(link)
-        # afinnreader.saveList('links.pickle', links)
-
-
-# def crawling(start_url, count_limit):
+# def printPickle():
+#     filepath = 'links.pickle'
+#     links = afinnreader.readList(filepath)
+#     print(len(links))
+#     for link in links:
+#         print(link)
+#         # afinnreader.saveList('links.pickle', links)
+#
+#
+# # def crawling(start_url, count_limit):
 if __name__ == '__main__':
-    links = afinnreader.readList('links.pickle')
-    for link in links:
-        extract_text(link)
-
     # links_lst = []
-    # links_lst = ['https://www.concordia.ca/artsci/students/associations.html']
+    # links_lst = ['http://www.cupfa.org']
     # links_lst = recursive_get_link(links_lst, 0)
-    # for link in links_lst:
-    #     print(link)
+    links_lst = read_list('output2.pickle')
+    print(len(links_lst))
+    for link in links_lst:
+        print(link)
     # links = recursive_get_link(links_lst, 0)
     # printPickle()
