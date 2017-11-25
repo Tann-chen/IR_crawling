@@ -6,7 +6,6 @@ import afinnreader
 
 threshold = 1
 
-
 def recursive_get_link(links, i):
     global rootdir
     global file
@@ -119,21 +118,21 @@ if __name__ == '__main__':
     extract_text('http://cufa.net/support-professor-louise-briand-faculty-representative-uqo-board-governors/')
 
 
-def printPickle():
-    filepath = 'links.pickle'
-    links = afinnreader.readList(filepath)
-    print(len(links))
-    for link in links:
-        print(link)
-        # afinnreader.saveList('links.pickle', links)
-
-
-# def crawling(start_url, count_limit):
-if __name__ == '__main__':
-    # links_lst = []
-    links_lst = ['https://www.concordia.ca/artsci/students/associations.html']
-    # links_lst = recursive_get_link(links_lst, 0)
-    # for link in links_lst:
-    #     print(link)
-    # links = recursive_get_link(links_lst, 0)
-    printPickle()
+# def printPickle():
+#     filepath = 'links.pickle'
+#     links = afinnreader.readList(filepath)
+#     print(len(links))
+#     for link in links:
+#         print(link)
+#         # afinnreader.saveList('links.pickle', links)
+#
+#
+# # def crawling(start_url, count_limit):
+# if __name__ == '__main__':
+#     # links_lst = []
+#     links_lst = ['https://www.concordia.ca/artsci/students/associations.html']
+#     # links_lst = recursive_get_link(links_lst, 0)
+#     # for link in links_lst:
+#     #     print(link)
+#     # links = recursive_get_link(links_lst, 0)
+#     printPickle()
