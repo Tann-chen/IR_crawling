@@ -142,10 +142,10 @@ def extract_text(target_url):
 
 def regulate_files():
     input_path = 'archive/'
-    output_relative_path = ''
+    output_relative_path = 'repo/'
     renamed_index = 0
     for filename in os.listdir(input_path):
-        with open(filename, 'r', errors="ignore") as file_obj:
+        with open(input_path + filename, 'r', errors="ignore") as file_obj:
             content = file_obj.read()
             with open(output_relative_path + str(renamed_index) + '.txt', 'w') as f:
                 f.write(content)
@@ -157,17 +157,58 @@ if __name__ == '__main__':
     # links_lst = []
     # get_links_within_page('http://cufa.net', links_lst)
     # extract_text('http://cufa.net/support-professor-louise-briand-faculty-representative-uqo-board-governors/')
+    regulate_files()
 
-    with open('links.pickle', 'rb') as f:
-        links = pickle.load(f)
-        links = list(set(links))
+    # with open('links.pickle', 'rb') as f:
+    #     links = pickle.load(f)
+    #     links = list(set(links))
+    #
+    # temp = links[20001:]
+    # index = 0
+    # relative_path = 'archive/'
+    # for url in links:
+    #     print('parsing:' + url)
+    #     extract_text(url)
+    #     if index >= 10000:
+    #         break
 
-    temp = links[20001:]
-    index = 0
-    relative_path = 'archive/'
-    for url in links:
-        print('parsing:' + url)
-        extract_text(url)
-        if index >= 10000:
-            break
+
+
+    # for num in range(0, 1233):
+    #     with open('archive/' + str(num) + '.txt', 'r') as f:
+    #         for line in f.readlines():
+    #             if 'Forgot account' in line:
+    #                 os.remove('archive/' + str(num) + '.txt')
+    #                 break
+
+    # for filename in os.listdir('archive/'):
+    #     with open('archive/'+filename, 'r', errors="ignore") as file_obj:
+    #         content = file_obj.read()
+    #     if 'Forgot password?' in content:
+    #         os.remove('archive/'+filename)
+
+
+
+        # def printPickle():
+        #     filepath = 'links.pickle'
+        #     links = afinnreader.readList(filepath)
+        #     print(len(links))
+        #     for link in links:
+        #         print(link)
+        #         # afinnreader.saveList('links.pickle', links)
+        #
+        #
+        # # def crawling(start_url, count_limit):
+        # if __name__ == '__main__':
+        # links_lst = []
+        # links_lst = ['http://www.cupfa.org']
+        # links_lst = recursive_get_link(links_lst, 0)
+        # links_lst = read_list('output2.pickle')
+        # print(len(links_lst))
+        # for link in links_lst:
+        #     print(link)
+        # links = recursive_get_link(links_lst, 0)
+        # printPickle()
+
+
 

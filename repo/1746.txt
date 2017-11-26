@@ -1,0 +1,3480 @@
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+					View Saved (0 items)
+
+ 
+
+
+
+
+
+
+
+
+|
+                      Login to My Library Account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Search:
+
+
+
+
+
+
+
+
+
+                                Advanced Search
+                            
+
+
+
+
+
+
+
+
+
+   var previousSearchTerm='';
+   function setPreviousSearchTerm()
+     {
+	   var flag = false;
+  	   if(document.getElementById('searchString').value.trim()!='' && previousSearchTerm.trim() == document.getElementById('searchString').value.trim())
+  		   {
+  		   flag = false;
+  		   }
+  	   else
+  		   {
+  		   flag = true;
+  		   }
+  	
+  	 previousSearchTerm=document.getElementById('searchString').value.trim();
+  	 return flag;
+     }   
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    WorldCat
+                                
+
+
+
+                                    Show Results
+
+
+
+
+
+
+
+            Results
+            1 - 15 of 15
+        
+        for
+        
+            computer games
+
+
+
+
+        Sorted by 
+        
+            
+            
+            
+                Relevance
+            
+        
+            
+                |
+
+
+                        Date
+
+
+
+
+
+
+
+
+
+                       Limit Results:
+                   
+                   Loading Facets...
+                
+
+
+
+
+
+        Related Searches:
+    
+
+
+
+               
+                
+                    Loading related search terms...
+                
+            
+
+
+
+
+
+
+                    Loading Tags...
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additional actions:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           close
+       
+more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        The legend of Zelda : breath of the wild
+
+
+
+
+
+
+VIDEO GAME
+|
+Nintendo of America
+|
+2017
+|
+Wii U
+
+
+
+
+
+
+
+
+
+
+
+
+
+Available at Webster Circulation Desk (GV 1469.35 L43 L433 2017 Game)
+                    
+
+
+
+
+close
+
+
+
+[see all]
+
+Items
+
+
+
+
+
+	        			Location
+	        		
+
+	        			Call No.
+	        		
+
+	        			Status
+	        		
+
+
+
+
+	    	Webster Circulation Desk
+	    
+
+
+
+                                                    GV 1469.35 L43 L433 2017 Game
+                                                
+
+
+                                
+                                    
+                                        AVAILABLE
+                                    
+                                    
+            			        
+	            			
+
+
+    
+
+	                        
+							
+							
+  ​							
+								
+  
+ 
+					
+  
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additional actions:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           close
+       
+more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        Psychonauts : in the Rhombus of Ruin
+
+
+
+
+
+
+VIDEO GAME
+|
+Double Fine
+|
+2017
+|
+PS 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+Not Available at Webster Circulation Desk (DUE 27-11-17)
+                    
+
+
+
+
+close
+
+
+only show available
+only show available
+only show available
+only show available
+
+
+[see all]
+
+Items
+
+
+
+
+
+	        			Location
+	        		
+
+	        			Call No.
+	        		
+
+	        			Status
+	        		
+
+
+
+
+	    	Webster Circulation Desk
+	    
+
+
+
+                                                    GV 1469.35 P76 P765 2016 Game
+                                                
+
+
+                                
+                                    
+                                        DUE 27-11-17
+                                    
+                                    
+            			        
+	            			
+
+
+    
+
+	                        
+							
+							
+  ​							
+								
+  
+ 
+					
+  
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additional actions:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           close
+       
+more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        BioShock: the collection
+
+
+
+
+
+
+VIDEO GAME
+|
+2K
+|
+2016
+|
+PS4
+
+
+
+
+
+
+
+
+
+
+
+
+
+Available at Webster Circulation Desk (GV 1469.35 B537 B537 2016 Game disc 1-2)
+                    
+
+
+
+
+close
+
+
+
+[see all]
+
+Items
+
+
+
+
+
+	        			Location
+	        		
+
+	        			Call No.
+	        		
+
+	        			Status
+	        		
+
+
+
+
+	    	Webster Circulation Desk
+	    
+
+
+
+                                                    GV 1469.35 B537 B537 2016 Game
+                                                
+                                            
+                                            
+                                        
+                                    
+            			        
+                                    
+                                        disc 1-2
+                                    
+                                    
+            			        
+                                    
+                                         
+                                    
+                                    
+            			        
+	            			
+
+                                
+                                    
+                                        AVAILABLE
+                                    
+                                    
+            			        
+	            			
+
+
+    
+
+	                        
+							
+							
+  ​							
+								
+  
+ 
+					
+  
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+                  
+                     Instruction manual available online
+                  
+                  
+               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additional actions:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           close
+       
+more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        Deus ex: mankind divided
+
+
+
+
+
+
+VIDEO GAME
+|
+Square Enix, Inc.
+|
+2016
+|
+PlayStation 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+Available at Webster Circulation Desk (GV 1469.35 D48 D486 2016 Game)
+                    
+
+
+
+
+close
+
+
+
+[see all]
+
+Items
+
+
+
+
+
+	        			Location
+	        		
+
+	        			Call No.
+	        		
+
+	        			Status
+	        		
+
+
+
+
+	    	Webster Circulation Desk
+	    
+
+
+
+                                                    GV 1469.35 D48 D486 2016 Game
+                                                
+
+
+                                
+                                    
+                                        AVAILABLE
+                                    
+                                    
+            			        
+	            			
+
+
+    
+
+	                        
+							
+							
+  ​							
+								
+  
+ 
+					
+  
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additional actions:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           close
+       
+more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        Minecraft
+
+
+
+
+
+
+VIDEO GAME
+|
+Microsoft Studios/Microsoft Corporation
+|
+2016
+|
+Wii U edition
+
+
+
+
+
+
+
+
+
+
+
+
+
+Available at Webster Circulation Desk (GV 1469.35 M535 M55 2016 Game)
+                    
+
+
+
+
+close
+
+
+
+[see all]
+
+Items
+
+
+
+
+
+	        			Location
+	        		
+
+	        			Call No.
+	        		
+
+	        			Status
+	        		
+
+
+
+
+	    	Webster Circulation Desk
+	    
+
+
+
+                                                    GV 1469.35 M535 M55 2016 Game
+                                                
+
+
+                                
+                                    
+                                        AVAILABLE
+                                    
+                                    
+            			        
+	            			
+
+
+    
+
+	                        
+							
+							
+  ​							
+								
+  
+ 
+					
+  
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additional actions:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           close
+       
+more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        Watch dogs 2
+
+
+
+
+
+
+VIDEO GAME
+|
+Ubisoft, Inc.
+|
+2016
+|
+Deluxe edition, PlayStation 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+Available at Webster Circulation Desk (GV 1469.35 W38 W382 2016 Game)
+                    
+
+
+
+
+close
+
+
+
+[see all]
+
+Items
+
+
+
+
+
+	        			Location
+	        		
+
+	        			Call No.
+	        		
+
+	        			Status
+	        		
+
+
+
+
+	    	Webster Circulation Desk
+	    
+
+
+
+                                                    GV 1469.35 W38 W382 2016 Game
+                                                
+
+
+                                
+                                    
+                                        AVAILABLE
+                                    
+                                    
+            			        
+	            			
+
+
+    
+
+	                        
+							
+							
+  ​							
+								
+  
+ 
+					
+  
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additional actions:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           close
+       
+more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        Dishonored2
+
+
+
+
+
+
+VIDEO GAME
+|
+Bethesda Softworks LLC
+|
+2016
+|
+PlayStation 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+Not Available at Webster Circulation Desk (DUE 25-11-17)
+                    
+
+
+
+
+close
+
+
+only show available
+only show available
+only show available
+only show available
+
+
+[see all]
+
+Items
+
+
+
+
+
+	        			Location
+	        		
+
+	        			Call No.
+	        		
+
+	        			Status
+	        		
+
+
+
+
+	    	Webster Circulation Desk
+	    
+
+
+
+                                                    GV 1469.35 D5848 D5848 2016 Game
+                                                
+
+
+                                
+                                    
+                                        DUE 25-11-17
+                                    
+                                    
+            			        
+	            			
+
+
+    
+
+	                        
+							
+							
+  ​							
+								
+  
+ 
+					
+  
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additional actions:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           close
+       
+more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        No man's sky
+
+
+
+
+
+
+VIDEO GAME
+|
+Sony Interactive Entertainment America LLC
+|
+2016
+|
+PS4, [PlayStation 4]
+
+
+
+
+
+
+
+
+
+
+
+
+
+Available at Webster Circulation Desk (GV 1469.35 N66 N66 2016 Game)
+                    
+
+
+
+
+close
+
+
+
+[see all]
+
+Items
+
+
+
+
+
+	        			Location
+	        		
+
+	        			Call No.
+	        		
+
+	        			Status
+	        		
+
+
+
+
+	    	Webster Circulation Desk
+	    
+
+
+
+                                                    GV 1469.35 N66 N66 2016 Game
+                                                
+
+
+                                
+                                    
+                                        AVAILABLE
+                                    
+                                    
+            			        
+	            			
+
+
+    
+
+	                        
+							
+							
+  ​							
+								
+  
+ 
+					
+  
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additional actions:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           close
+       
+more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        RIGS :  Mechanized Combat League
+
+
+
+
+
+
+VIDEO GAME
+|
+Sony Interactifve Entertainment America LLC
+|
+2016
+|
+PS4
+
+
+
+
+
+
+
+
+
+
+
+
+
+Not Available at Webster Circulation Desk (DUE 27-11-17)
+                    
+
+
+
+
+close
+
+
+only show available
+only show available
+only show available
+only show available
+
+
+[see all]
+
+Items
+
+
+
+
+
+	        			Location
+	        		
+
+	        			Call No.
+	        		
+
+	        			Status
+	        		
+
+
+
+
+	    	Webster Circulation Desk
+	    
+
+
+
+                                                    GV 1469.35 R54 R546 2016 Game
+                                                
+
+
+                                
+                                    
+                                        DUE 27-11-17
+                                    
+                                    
+            			        
+	            			
+
+
+    
+
+	                        
+							
+							
+  ​							
+								
+  
+ 
+					
+  
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additional actions:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           close
+       
+more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        Eagle flight
+ / developed & published by Ubisoft
+
+
+
+
+
+VIDEO GAME
+|
+Ubisoft, Inc.
+|
+2016
+|
+Playstation 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+Not Available at Webster Circulation Desk (DUE 27-11-17)
+                    
+
+
+
+
+close
+
+
+only show available
+only show available
+only show available
+only show available
+
+
+[see all]
+
+Items
+
+
+
+
+
+	        			Location
+	        		
+
+	        			Call No.
+	        		
+
+	        			Status
+	        		
+
+
+
+
+	    	Webster Circulation Desk
+	    
+
+
+
+                                                    GV 1469.35 E35 E35 2016 Game
+                                                
+
+
+                                
+                                    
+                                        DUE 27-11-17
+                                    
+                                    
+            			        
+	            			
+
+
+    
+
+	                        
+							
+							
+  ​							
+								
+  
+ 
+					
+  
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additional actions:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           close
+       
+more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        Dishonored
+
+
+
+
+
+
+VIDEO GAME
+|
+ZeniMax Media
+|
+2015
+|
+PlayStation 4 ; Definitive edition
+
+
+
+
+
+
+
+
+
+
+
+
+
+Available at Webster Circulation Desk (GV 1469.35 D584 D584 2015 Game)
+                    
+
+
+
+
+close
+
+
+
+[see all]
+
+Items
+
+
+
+
+
+	        			Location
+	        		
+
+	        			Call No.
+	        		
+
+	        			Status
+	        		
+
+
+
+
+	    	Webster Circulation Desk
+	    
+
+
+
+                                                    GV 1469.35 D584 D584 2015 Game
+                                                
+
+
+                                
+                                    
+                                        AVAILABLE
+                                    
+                                    
+            			        
+	            			
+
+
+    
+
+	                        
+							
+							
+  ​							
+								
+  
+ 
+					
+  
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additional actions:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           close
+       
+more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        Super Smash Bros. for Wii U
+
+
+
+
+
+
+VIDEO GAME
+|
+Nintendo of America Inc.
+|
+2014
+|
+Wii U
+
+
+
+
+
+
+
+
+
+
+
+
+
+Available at Webster Circulation Desk (GV 1469.35 S98 S98 2014 Game)
+                    
+
+
+
+
+close
+
+
+
+[see all]
+
+Items
+
+
+
+
+
+	        			Location
+	        		
+
+	        			Call No.
+	        		
+
+	        			Status
+	        		
+
+
+
+
+	    	Webster Circulation Desk
+	    
+
+
+
+                                                    GV 1469.35 S98 S98 2014 Game
+                                                
+
+
+                                
+                                    
+                                        AVAILABLE
+                                    
+                                    
+            			        
+	            			
+
+
+    
+
+	                        
+							
+							
+  ​							
+								
+  
+ 
+					
+  
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additional actions:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           close
+       
+more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        Donkey Kong country
+
+
+
+
+
+
+VIDEO GAME
+|
+Nintendo of America Inc.
+|
+2014
+|
+Wii-U
+
+
+
+
+
+
+
+
+
+
+
+
+
+Not Available at Webster Circulation Desk (DUE 27-11-17)
+                    
+
+
+
+
+close
+
+
+only show available
+only show available
+only show available
+only show available
+
+
+[see all]
+
+Items
+
+
+
+
+
+	        			Location
+	        		
+
+	        			Call No.
+	        		
+
+	        			Status
+	        		
+
+
+
+
+	    	Webster Circulation Desk
+	    
+
+
+
+                                                    GV 1469.35 D663 D6638 2016 Game
+                                                
+
+
+                                
+                                    
+                                        DUE 27-11-17
+                                    
+                                    
+            			        
+	            			
+
+
+    
+
+	                        
+							
+							
+  ​							
+								
+  
+ 
+					
+  
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additional actions:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           close
+       
+more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        The legend of Zelda : the wind waker HD
+
+
+
+
+
+
+VIDEO GAME
+|
+Nintendo of America
+|
+2013
+|
+Wii U
+
+
+
+
+
+
+
+
+
+
+
+
+
+Available at Webster Circulation Desk (GV 1469.35 L43 L439 2013 Game)
+                    
+
+
+
+
+close
+
+
+
+[see all]
+
+Items
+
+
+
+
+
+	        			Location
+	        		
+
+	        			Call No.
+	        		
+
+	        			Status
+	        		
+
+
+
+
+	    	Webster Circulation Desk
+	    
+
+
+
+                                                    GV 1469.35 L43 L439 2013 Game
+                                                
+
+
+                                
+                                    
+                                        AVAILABLE
+                                    
+                                    
+            			        
+	            			
+
+
+    
+
+	                        
+							
+							
+  ​							
+								
+  
+ 
+					
+  
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additional actions:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           close
+       
+more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        New super Mario Bros. U + New super Luigi U
+
+
+
+
+
+
+VIDEO GAME
+|
+Nintendo of America Inc.
+|
+2013
+|
+Wii U
+
+
+
+
+
+
+
+
+
+
+
+
+
+Not Available at Webster Circulation Desk (DUE 27-11-17)
+                    
+
+
+
+
+close
+
+
+only show available
+only show available
+only show available
+only show available
+
+
+[see all]
+
+Items
+
+
+
+
+
+	        			Location
+	        		
+
+	        			Call No.
+	        		
+
+	        			Status
+	        		
+
+
+
+
+	    	Webster Circulation Desk
+	    
+
+
+
+                                                    GV 1469.35 S96 N49 2013 Game
+                                                
+
+
+                                
+                                    
+                                        DUE 27-11-17
+                                    
+                                    
+            			        
+	            			
+
+
+    
+
+	                        
+							
+							
+  ​							
+								
+  
+ 
+					
+  
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	Back to top
+
+
+
+
+Library Links
+
+
+
+Library HomeClassic Catalogue (CLUES)Suggest a purchase
+
+
+
+
+
+Search Tools
+
+
+Advanced Search
+
+Basic Search
+
+
+
+
+					View Saved (0 items)
+
+ 
+
+
+
+
+
+|
+                      Login to My Library Account
+
+
+
+
+
+
+
+
+
+
+Recent Searches
+
+
+computer games
+
+
+
+
+
+
+
+
+
+        	Powered by   © Innovative Interfaces, Inc.
+               
+                    |
+Mobile site
+
+
+
+ 
+
+
+					View Saved (0 items)
+
+ 
+
+
+
+
+
+
+
+
+|
+                      Login to My Library Account
+
+
+
+
+
+
+ 
+
+					View Saved (0 items)
+
+ 
+   
+ 
+ | 
+ 
+Search:
+ 
+
+
+
+
+
+
+
+                                Advanced Search
+                            
+
+
+ 
+
+ 
+
+
+
+                                    WorldCat
+                                
+
+
+
+                                    Show Results
+
+
+ 
+
+
+                                    WorldCat
+                                
+
+
+
+                                    Show Results
+
+ 
+            Results
+            1 - 15 of 15
+         computer games computer games 
+        Sorted by 
+        
+            
+            
+            
+                Relevance
+            
+        
+            
+                |
+
+
+                        Date
+ | 
+                        Date 
+
+                       Limit Results:
+                   
+                   Loading Facets...
+                 
+                    Loading Tags...
+                 
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+                        The legend of Zelda : breath of the wild   VIDEO GAME | Nintendo of America | 2017 | Wii U 
+Available at Webster Circulation Desk (GV 1469.35 L43 L433 2017 Game)
+                     Available GV 1469.35 L43 L433 2017 Game  [see all]  
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+                        Psychonauts : in the Rhombus of Ruin   VIDEO GAME | Double Fine | 2017 | PS 4 
+Not Available at Webster Circulation Desk (DUE 27-11-17)
+                     Not Available  [see all]  
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+                        BioShock: the collection   VIDEO GAME | 2K | 2016 | PS4 
+Available at Webster Circulation Desk (GV 1469.35 B537 B537 2016 Game disc 1-2)
+                     Available GV 1469.35 B537 B537 2016 Game disc 1-2  [see all]  
+
+                  
+                     Instruction manual available online
+                  
+                  
+                
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+                        Deus ex: mankind divided   VIDEO GAME | Square Enix, Inc. | 2016 | PlayStation 4 
+Available at Webster Circulation Desk (GV 1469.35 D48 D486 2016 Game)
+                     Available GV 1469.35 D48 D486 2016 Game  [see all]  
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+                        Minecraft   VIDEO GAME | Microsoft Studios/Microsoft Corporation | 2016 | Wii U edition 
+Available at Webster Circulation Desk (GV 1469.35 M535 M55 2016 Game)
+                     Available GV 1469.35 M535 M55 2016 Game  [see all]  
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+                        Watch dogs 2   VIDEO GAME | Ubisoft, Inc. | 2016 | Deluxe edition, PlayStation 4 
+Available at Webster Circulation Desk (GV 1469.35 W38 W382 2016 Game)
+                     Available GV 1469.35 W38 W382 2016 Game  [see all]  
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+                        Dishonored2   VIDEO GAME | Bethesda Softworks LLC | 2016 | PlayStation 4 
+Not Available at Webster Circulation Desk (DUE 25-11-17)
+                     Not Available  [see all]  
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+                        No man's sky   VIDEO GAME | Sony Interactive Entertainment America LLC | 2016 | PS4, [PlayStation 4] 
+Available at Webster Circulation Desk (GV 1469.35 N66 N66 2016 Game)
+                     Available GV 1469.35 N66 N66 2016 Game  [see all]  
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+                        RIGS :  Mechanized Combat League   VIDEO GAME | Sony Interactifve Entertainment America LLC | 2016 | PS4 
+Not Available at Webster Circulation Desk (DUE 27-11-17)
+                     Not Available  [see all]  
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+                        Eagle flight  / developed & published by Ubisoft  / developed & published by Ubisoft VIDEO GAME | Ubisoft, Inc. | 2016 | Playstation 4 
+Not Available at Webster Circulation Desk (DUE 27-11-17)
+                     Not Available  [see all]  
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+                        Dishonored   VIDEO GAME | ZeniMax Media | 2015 | PlayStation 4 ; Definitive edition 
+Available at Webster Circulation Desk (GV 1469.35 D584 D584 2015 Game)
+                     Available GV 1469.35 D584 D584 2015 Game  [see all]  
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+                        Super Smash Bros. for Wii U   VIDEO GAME | Nintendo of America Inc. | 2014 | Wii U 
+Available at Webster Circulation Desk (GV 1469.35 S98 S98 2014 Game)
+                     Available GV 1469.35 S98 S98 2014 Game  [see all]  
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+                        Donkey Kong country   VIDEO GAME | Nintendo of America Inc. | 2014 | Wii-U 
+Not Available at Webster Circulation Desk (DUE 27-11-17)
+                     Not Available  [see all]  
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+                        The legend of Zelda : the wind waker HD   VIDEO GAME | Nintendo of America | 2013 | Wii U 
+Available at Webster Circulation Desk (GV 1469.35 L43 L439 2013 Game)
+                     Available GV 1469.35 L43 L439 2013 Game  [see all]  
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+                        New super Mario Bros. U + New super Luigi U   VIDEO GAME | Nintendo of America Inc. | 2013 | Wii U 
+Not Available at Webster Circulation Desk (DUE 27-11-17)
+                     Not Available  [see all]    
+Library HomeClassic Catalogue (CLUES)Suggest a purchase
+ 
+Advanced Search
+ 
+
+
+					View Saved (0 items)
+
+ 
+
+ 
+
+					View Saved (0 items)
+
+ 
+   | | Additional actions: Additional actions: Additional actions: Additional actions: Additional actions: Additional actions: Additional actions: Additional actions: Additional actions: Additional actions: Additional actions: Additional actions: Additional actions: Additional actions: Additional actions:
