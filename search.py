@@ -167,7 +167,7 @@ if __name__ == '__main__':
         index = pickle.load(f_1)
     with open('doc_lengths.pickle', 'rb') as f_2:
         doc_len_dict = pickle.load(f_2)
-
+    print(len(index))
     docList = {}
     x = 'good job'
     queries = x.split(" ")

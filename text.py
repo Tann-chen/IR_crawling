@@ -17,8 +17,8 @@ if __name__ == '__main__':
     # second = {4:4,5:5}
     # first.update(second)
     # print(first)
-    dict = {'b':2,'c':3}
-    dict['a']=1
+    # dict = {'b':2,'c':3}
+    # dict['a']=1
 
     print(dict)
 
