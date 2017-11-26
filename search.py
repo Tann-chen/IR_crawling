@@ -6,16 +6,38 @@ from math import *
 from nltk.corpus import stopwords
 
 
-def sort_dict(origin):
+def find_key_based_value(dict, target_value):
+    result = []
+    for key, value in dict.items():
+        if value == target_value:
+            result.append(key)
+    return result
+
+
+def sort_dict_by_value_asc(origin):
     after_sort = {}
-    sorted_keys = sorted(origin.keys(), reverse=True)
-    for key in sorted_keys:
-        after_sort[key] = origin[key]
+    sorted_values = sorted(origin.values())
+    for value in sorted_values:
+        keys = find_key_based_value(origin, value)
+        for key in keys:
+            if key not in after_sort.keys():
+                after_sort[key] = origin[key]
     return after_sort
 
 
-def calculate_rsvd(query, doc_set):
-    global doc_len_dict
+def sort_dict_by_value_desc(origin):
+    after_sort = {}
+    sorted_values = sorted(origin.values(), reverse=True)
+    for value in sorted_values:
+        keys = find_key_based_value(origin, value)
+        for key in keys:
+            if key not in after_sort.keys():
+                after_sort[key] = origin[key]
+    return after_sort
+
+
+def calculate_score(query, doc_set):
+    global doc_info
     global avg_doc_len
     global doc_num
     global index
@@ -24,11 +46,12 @@ def calculate_rsvd(query, doc_set):
 
     result = {}
     for doc_id in doc_set:
-        doc_len = doc_len_dict[doc_id]
-        accumulator = 0
+        doc_len = doc_info[doc_id][0]
+        rsvd = 0
 
         for token in query:
-            doc_fre = len(index[token].keys())
+            # 'sentiment':sentiment_value in the end of postings
+            doc_fre = len(index[token].keys()) - 1
             in_set = list(index[token].keys())
 
             if doc_id in in_set:
@@ -36,25 +59,32 @@ def calculate_rsvd(query, doc_set):
             else:
                 term_fre = 0
 
-            value = log(doc_num / doc_fre) * ((k + 1) * term_fre) / (k * ((1-b) + b * (doc_len / avg_doc_len)) + term_fre)
-            accumulator += value
+            value = log(doc_num / doc_fre) * ((k + 1) * term_fre) / (k * ((1 - b) + b * (doc_len / avg_doc_len)) + term_fre)
+            rsvd += value
 
-        result[accumulator] = doc_id  # convenient for sorting
-
+        # in index, store sum of sentiment value of all words, there need avg
+        doc_sentiment_value = doc_info[doc_id][1] / doc_len
+        result[doc_id] = rsvd * doc_sentiment_value
     return result
 
 
-def calculate_sent_score(content, sentiment_dic):
+def get_sentiment_value(term):
+    global index
+    if term in index.keys():
+        value = index[term]['sentiment']
+    else:
+        value = 0
+    return value
 
+
+def calculate_sentiment_score(query):
     score = 0
     count = 0
 
-    for token in content:
-        score += sentiment_dic[token]
+    for token in query:
+        score += get_sentiment_value(token)
         count += 1
-
     content_score = score / count
-
     return content_score
 
 
@@ -86,7 +116,7 @@ def union(lst_1, lst_2):
 def get_top_10(origin):
     result = []
     counter = 0
-    for rsvd,doc_id in origin.items():
+    for doc_id, score in origin.items():
         result.append(doc_id)
         counter += 1
         if counter >= 10:
@@ -112,18 +142,22 @@ def search(query):
     # tokenize
     doc_tokens = nltk.word_tokenize(after_case_fold)
 
-    # stemming
     for token in doc_tokens:
-        token = porter_stemmer.stem(token)
         final_search.append(token)
 
     # search
     # if only one token in query
     if len(final_search) == 1:
         print(' ------ ' + query + ' ------ ')
-        postings_list = list(index[final_search[0]].keys())
-        ref_dict = calculate_rsvd(final_search, postings_list)
-        sorted = sort_dict(ref_dict)
+        postings_list = list(index[final_search[0]].keys())[:-1]  # the last one is 'sentiment':sentiment_value
+        ref_dict = calculate_score(final_search, postings_list)
+
+        if calculate_sentiment_score(final_search) >= 0:   # positive
+            sorted = sort_dict_by_value_desc(ref_dict)
+
+        else:   # negative
+
+            sorted = sort_dict_by_value_asc(ref_dict)
         top_10 = get_top_10(sorted)
         print(top_10)
         print('\n')
@@ -131,64 +165,45 @@ def search(query):
     else:
         filtered_tokens = [token for token in final_search if token not in stopwords.words('english')]
         query_terms_count = len(filtered_tokens)
-        postings_list = list(index[filtered_tokens[0]].keys())
+        postings_list = list(index[filtered_tokens[0]].keys())[:-1]   # the last one is 'sentiment':sentiment_value
 
         print('------ ' + query + ' ------ ')
 
         for i in range(1, query_terms_count):
             # union hits for all tokens in query
-            postings_list = union(postings_list, list(index[filtered_tokens[i]].keys()))
+            # the last one is 'sentiment':sentiment_value ,so [:-1]
+            postings_list = union(postings_list, list(index[filtered_tokens[i]].keys())[:-1])
 
-        ref_dict = calculate_rsvd(filtered_tokens, postings_list)
-        # sort by rsvd value
-        sorted = sort_dict(ref_dict)
+        ref_dict = calculate_score(filtered_tokens, postings_list)
+        # sort by score value
+        if calculate_sentiment_score(final_search) >= 0:  # positive
+            sorted = sort_dict_by_value_desc(ref_dict)
+
+        else:  # negative
+            sorted = sort_dict_by_value_asc(ref_dict)
         # get top 10 based on sorted result
         top_10 = get_top_10(sorted)
         print(top_10)
         print('\n')
 
 
-def getSentiment(queries, docList):
-    global index
-    sentiment_query = 0
-
-    queries = [x.lower() for x in queries]
-    for query in queries:
-        if query in index:
-            sentiment_query = sentiment_query + int(index[query]['sentiment'])
-            index[query].pop('sentiment')
-            docList[query] = index[query]
-    return sentiment_query
-
-
 if __name__ == '__main__':
 
     with open('inverted_index.pickle', 'rb') as f_1:
         index = pickle.load(f_1)
-    with open('doc_lengths.pickle', 'rb') as f_2:
-        doc_len_dict = pickle.load(f_2)
-    print(len(index))
-    docList = {}
-    x = 'good job'
-    queries = x.split(" ")
-    # 这个是query的sentiment value
-    sentimentValue = getSentiment(queries, docList)
-    print('sentimentValue = '+str(sentimentValue))
-    # docList 里面是所有相关doc的, run 一下就能看到
-    print(docList)
+    with open('doc_info.pickle', 'rb') as f_2:
+        doc_info = pickle.load(f_2)
 
     accumulator = 0
     counter = 0
-    for doc_len in doc_len_dict.values():
+    for doc_info_r in doc_info.values():
         counter += 1
-        accumulator += doc_len
+        accumulator += doc_info_r[0]
 
     avg_doc_len = accumulator / counter
     doc_num = counter
 
-    k = 1.9
+    k = 1.7
     b = 0.75
 
-    # search("Democrats' welfare and healthcare reform policies")
-    # search('Drug company bankruptcies')
-    # search('George Bush')
+    search('good boy')

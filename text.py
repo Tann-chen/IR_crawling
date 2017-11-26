@@ -1,4 +1,5 @@
 import os
+import pickle
 
 if __name__ == '__main__':
 
@@ -19,9 +20,46 @@ if __name__ == '__main__':
     # print(first)
     # dict = {'b':2,'c':3}
     # dict['a']=1
+    #
+    # print(dict)
 
-    print(dict)
+    def sort_dict_by_value_asc(origin):
+        after_sort = {}
+        sorted_values = sorted(origin.values())
+        for value in sorted_values:
+            keys = find_key_based_value(origin, value)
+            for key in keys:
+                if key not in after_sort.keys():
+                    after_sort[key] = origin[key]
+        return after_sort
 
 
+    def find_key_based_value(dict, target_value):
+        result = []
+        for key, value in dict.items():
+            if value == target_value:
+                result.append(key)
+        return result
 
 
+    def sort_dict_by_value_desc(origin):
+        after_sort = {}
+        sorted_values = sorted(origin.values(), reverse=True)
+        for value in sorted_values:
+            keys = find_key_based_value(origin, value)
+            for key in keys:
+                if key not in after_sort.keys():
+                    after_sort[key] = origin[key]
+        return after_sort
+
+    #
+    # d = {'a': 5, 'b': 4, 'c': 3, 'v': -7, 'i': 9,'l':5,'j':5}
+    # a = sort_dict_by_value_asc(d)
+    # print(a)
+    # tuple = (1,3)
+    # print(tuple[1])
+    with open('doc_info.pickle', 'rb') as f_2:
+        doc_info = pickle.load(f_2)
+
+        a = doc_info[19][0]
+        print(a)
