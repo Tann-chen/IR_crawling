@@ -10,14 +10,14 @@ from nltk.corpus import stopwords
 def cast_dict_2_str(dict):
     result = ''
     for key, value in dict.items():
-        result = result + '\n' + key + ':' + cast_list_2_str(value)
+        result = result + '\n' + key + ':{' + cast_dict_2_str_2(value) + '}'
     return result
 
 
-def cast_list_2_str(list):
+def cast_dict_2_str_2(dict):
     result = ''
-    for item in list:
-        result = result + ',' + str(item)
+    for key, value in dict.items():
+        result = result + '{' + str(key) + ':' + str(value) + '},'
     return result
 
 
@@ -61,11 +61,11 @@ def spimi(input_folder):
     doc_len_dict = {}
 
     for filename in os.listdir(input_folder):
-        with open(filename, 'r', errors="ignore") as file_obj:
+        with open(input_folder + filename, 'r', errors="ignore") as file_obj:
             doc_content = file_obj.read()
             doc_id = filename[:-4]
 
-        print(filename + ' is being processed (doc_id:' + doc_id + ')')
+        print(input_folder + filename + ' is being processed (doc_id:' + doc_id + ')')
 
         # remove all punctuation
         removed_punc = ''.join(s for s in doc_content if s not in punctuations)
@@ -104,20 +104,20 @@ def spimi(input_folder):
         # one doc done
         if sys.getsizeof(postings) >= memory_size * 1024 * 1024:
             # write into disk
-            with open(relative_path + str(output_file_index) + '.pickle', 'wb') as f:
-                pickle.dump(sort_dict(postings), f, pickle.HIGHEST_PROTOCOL)
-            # with open(relative_path + str(output_file_index) + '.txt', 'w') as f:
-            #     f.write(cast_dict_2_str(sort_dict(postings)))
+            # with open(relative_path + str(output_file_index) + '.pickle', 'wb') as f:
+            #     pickle.dump(sort_dict(postings), f, pickle.HIGHEST_PROTOCOL)
+            with open(relative_path + str(output_file_index) + '.txt', 'w') as f:
+                f.write(cast_dict_2_str(sort_dict(postings)))
 
             output_file_index += 1
             # new postings
             postings.clear()
 
     # write the final postings into block
-    # with open(relative_path + str(output_file_index) + '.txt', 'w') as f:
-    #     f.write(cast_dict_2_str(sort_dict(postings)))
-    with open(relative_path + str(output_file_index) + '.pickle', 'wb') as f:
-        pickle.dump(sort_dict(postings), f, pickle.HIGHEST_PROTOCOL)
+    with open(relative_path + str(output_file_index) + '.txt', 'w') as f:
+        f.write(cast_dict_2_str(sort_dict(postings)))
+    # with open(relative_path + str(output_file_index) + '.pickle', 'wb') as f:
+    #     pickle.dump(sort_dict(postings), f, pickle.HIGHEST_PROTOCOL)
 
     with open('doc_lengths.pickle', 'wb') as f_2:
         pickle.dump(doc_len_dict, f_2, pickle.HIGHEST_PROTOCOL)
@@ -139,8 +139,10 @@ def blocks_merge(blocks_count):
 
         if blocks_count == 1:
             add_sentiment_to_index(pl_first)  # add sentiment value for every token
-            with open('inverted_index.pickle', 'wb') as f:
-                pickle.dump(pl_first, f, pickle.HIGHEST_PROTOCOL)
+            # with open('inverted_index.pickle', 'wb') as f:
+            #     pickle.dump(pl_first, f, pickle.HIGHEST_PROTOCOL)
+            with open('xx_inverted_index.txt', 'w') as f:
+                f.write(cast_dict_2_str(pl_first))
 
         else:  # multiple blocks
             while block_index < blocks_count:
@@ -193,26 +195,22 @@ def blocks_merge(blocks_count):
 
             # finish all merging
             add_sentiment_to_index(pl_first)  # add sentiment value for every token
-            with open('inverted_index.pickle', 'wb') as f:
-                pickle.dump(pl_first, f, pickle.HIGHEST_PROTOCOL)
-            # with open('inverted_index.txt', 'w') as f:
-            #     f.write(cast_dict_2_str(pl_first))
+            # with open('inverted_index.pickle', 'wb') as f:
+            #     pickle.dump(pl_first, f, pickle.HIGHEST_PROTOCOL)
+            with open('xx_inverted_index.txt', 'w') as f:
+                f.write(cast_dict_2_str(pl_first))
             print('====== Merge done ======')
 
 
-
-
-
 if __name__ == '__main__':
-    # init
     with open('afinn.pickle', 'rb') as f:
         sentiment_dict = pickle.load(f)
 
     relative_path = 'postings/'
     memory_size = 1  # MB
     block_size = 1  # MB
-    input_folder = ''
+    input_folder = 'repo/'
 
     # spimi(input_folder)
-    # blocks_merge(3)
+    blocks_merge(2)
     print("====== Done ======")
