@@ -148,12 +148,34 @@ def search(query):
         print('\n')
 
 
+def getSentiment(queries, docList):
+    global index
+    sentiment_query = 0
+
+    queries = [x.lower() for x in queries]
+    for query in queries:
+        if query in index:
+            sentiment_query = sentiment_query + int(index[query]['sentiment'])
+            index[query].pop('sentiment')
+            docList[query] = index[query]
+    return sentiment_query
+
+
 if __name__ == '__main__':
 
     with open('inverted_index.pickle', 'rb') as f_1:
         index = pickle.load(f_1)
     with open('doc_lengths.pickle', 'rb') as f_2:
         doc_len_dict = pickle.load(f_2)
+
+    docList = {}
+    x = 'good job'
+    queries = x.split(" ")
+    # 这个是query的sentiment value
+    sentimentValue = getSentiment(queries, docList)
+    print('sentimentValue = '+str(sentimentValue))
+    # docList 里面是所有相关doc的, run 一下就能看到
+    print(docList)
 
     accumulator = 0
     counter = 0
@@ -167,6 +189,6 @@ if __name__ == '__main__':
     k = 1.9
     b = 0.75
 
-    search("Democrats' welfare and healthcare reform policies")
-    search('Drug company bankruptcies')
-    search('George Bush')
+    # search("Democrats' welfare and healthcare reform policies")
+    # search('Drug company bankruptcies')
+    # search('George Bush')
