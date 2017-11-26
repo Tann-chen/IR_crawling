@@ -2,10 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import re
 import pickle
-<<<<<<< HEAD
-=======
 import os
->>>>>>> origin/master
 
 
 def save_list(filepath, list):
@@ -22,11 +19,7 @@ def recursive_get_link(links, i):
     global rootdir
     global file
     global threshold
-<<<<<<< HEAD
-    file = 'output2.pickle'
-=======
     file = 'links_2.pickle'
->>>>>>> origin/master
 
     save_list(file, links)
     if i > threshold:
@@ -179,13 +172,6 @@ if __name__ == '__main__':
     #     if index >= 10000:
     #         break
 
-<<<<<<< HEAD
-
-
-=======
-
-
->>>>>>> origin/master
     # for num in range(0, 1233):
     #     with open('archive/' + str(num) + '.txt', 'r') as f:
     #         for line in f.readlines():
@@ -200,32 +186,6 @@ if __name__ == '__main__':
     #         os.remove('archive/'+filename)
 
 
-<<<<<<< HEAD
-
-        # def printPickle():
-        #     filepath = 'links.pickle'
-        #     links = afinnreader.readList(filepath)
-        #     print(len(links))
-        #     for link in links:
-        #         print(link)
-        #         # afinnreader.saveList('links.pickle', links)
-        #
-        #
-        # # def crawling(start_url, count_limit):
-        # if __name__ == '__main__':
-        # links_lst = []
-        # links_lst = ['http://www.cupfa.org']
-        # links_lst = recursive_get_link(links_lst, 0)
-        # links_lst = read_list('output2.pickle')
-        # print(len(links_lst))
-        # for link in links_lst:
-        #     print(link)
-        # links = recursive_get_link(links_lst, 0)
-        # printPickle()
-
-
-
-=======
     # def printPickle():
     #     filepath = 'links.pickle'
     #     links = afinnreader.readList(filepath)
@@ -247,6 +207,3 @@ if __name__ == '__main__':
     # links = recursive_get_link(links_lst, 0)
     # printPickle()
 
-
-
->>>>>>> origin/master
