@@ -1,0 +1,311 @@
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+					View Saved (0 items)
+
+ 
+
+
+
+
+
+
+
+
+|
+                      Login to My Library Account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Discovery Search
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Search:
+
+
+
+
+
+
+
+
+
+                                Advanced Search
+                            
+
+
+
+
+
+
+
+
+
+   var previousSearchTerm='';
+   function setPreviousSearchTerm()
+     {
+	   var flag = false;
+  	   if(document.getElementById('searchString').value.trim()!='' && previousSearchTerm.trim() == document.getElementById('searchString').value.trim())
+  		   {
+  		   flag = false;
+  		   }
+  	   else
+  		   {
+  		   flag = true;
+  		   }
+  	
+  	 previousSearchTerm=document.getElementById('searchString').value.trim();
+  	 return flag;
+     }   
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	Back to top
+
+
+
+
+Library Links
+
+
+
+Library HomeClassic Catalogue (CLUES)Suggest a purchase
+
+
+
+
+
+Search Tools
+
+
+Advanced Search
+
+Basic Search
+
+
+
+
+					View Saved (0 items)
+
+ 
+
+
+
+
+
+|
+                      Login to My Library Account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        	Powered by   © Innovative Interfaces, Inc.
+               
+                    |
+Mobile site
+
+
+
+ 
+
+
+					View Saved (0 items)
+
+ 
+
+
+
+
+
+
+
+
+|
+                      Login to My Library Account
+
+
+
+
+
+
+ 
+
+					View Saved (0 items)
+
+ 
+   
+ 
+ | 
+ 
+
+
+
+
+Discovery Search
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Search:
+
+
+
+
+
+
+
+
+
+                                Advanced Search
+                            
+
+
+
+
+
+
+
+
+
+   var previousSearchTerm='';
+   function setPreviousSearchTerm()
+     {
+	   var flag = false;
+  	   if(document.getElementById('searchString').value.trim()!='' && previousSearchTerm.trim() == document.getElementById('searchString').value.trim())
+  		   {
+  		   flag = false;
+  		   }
+  	   else
+  		   {
+  		   flag = true;
+  		   }
+  	
+  	 previousSearchTerm=document.getElementById('searchString').value.trim();
+  	 return flag;
+     }   
+    
+
+
+ 
+
+Discovery Search
+
+ 
+Discovery Search
+ Discovery Search 
+Search:
+ 
+
+
+
+
+
+
+
+                                Advanced Search
+                            
+
+
+ 
+
+ 
+Library HomeClassic Catalogue (CLUES)Suggest a purchase
+ 
+Advanced Search
+ 
+
+
+					View Saved (0 items)
+
+ 
+
+ 
+
+					View Saved (0 items)
+
+ 
+   | |

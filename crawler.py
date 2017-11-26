@@ -4,9 +4,6 @@ import re
 import pickle
 
 
-threshold = 2
-
-
 def save_list(filepath, list):
     with open(filepath, 'wb') as f:
         pickle.dump(list, f, pickle.HIGHEST_PROTOCOL)
@@ -20,6 +17,7 @@ def read_list(filepath):
 def recursive_get_link(links, i):
     global rootdir
     global file
+    global threshold
     file = 'output2.pickle'
 
     save_list(file, links)
@@ -141,35 +139,53 @@ def extract_text(target_url):
         pass
 
 
+def regulate_files():
+    input_path = 'archive/'
+    output_relative_path = 'repo/'
+    renamed_index = 0
+    for filename in os.listdir(input_path):
+        with open(input_path + filename, 'r', errors="ignore") as file_obj:
+            content = file_obj.read()
+            with open(output_relative_path + str(renamed_index) + '.txt', 'w') as f:
+                f.write(content)
+                renamed_index += 1
+
+
 if __name__ == '__main__':
+    threshold = 2
     # links_lst = []
     # get_links_within_page('http://cufa.net', links_lst)
     # extract_text('http://cufa.net/support-professor-louise-briand-faculty-representative-uqo-board-governors/')
+    regulate_files()
 
-    with open('output2.pickle', 'rb') as f:
-        links = pickle.load(f)
-        links = list(set(links))
-    temp = links[2001:]
-    index = 10000
+    # with open('links.pickle', 'rb') as f:
+    #     links = pickle.load(f)
+    #     links = list(set(links))
+    #
+    # temp = links[20001:]
+    # index = 0
+    # relative_path = 'archive/'
+    # for url in links:
+    #     print('parsing:' + url)
+    #     extract_text(url)
+    #     if index >= 10000:
+    #         break
 
-    relative_path = 'archive/'
-    for url in links:
-        url = str(url)
-        if '.pdf' not in url:
-            print('parsing:' + url)
-            extract_text(url)
-            if index >= 20000:
-                break
 
-    # for num in range(10000, 10626):
+
+    # for num in range(0, 1233):
     #     with open('archive/' + str(num) + '.txt', 'r') as f:
     #         for line in f.readlines():
-    #             if 'Toggle navigation' in line:
+    #             if 'Forgot account' in line:
     #                 os.remove('archive/' + str(num) + '.txt')
     #                 break
-    #             if 'Upload  Join or log in' in line:
-    #                 os.remove('archive/' + str(num) + '.txt')
-    #                 break
+
+    # for filename in os.listdir('archive/'):
+    #     with open('archive/'+filename, 'r', errors="ignore") as file_obj:
+    #         content = file_obj.read()
+    #     if 'Forgot password?' in content:
+    #         os.remove('archive/'+filename)
+
 
 
         # def printPickle():
@@ -192,3 +208,6 @@ if __name__ == '__main__':
         #     print(link)
         # links = recursive_get_link(links_lst, 0)
         # printPickle()
+
+
+
