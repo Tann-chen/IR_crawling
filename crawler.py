@@ -19,7 +19,6 @@ def recursive_get_link(links, i):
     global rootdir
     global file
     global threshold
-
     file = 'links_2.pickle'
 
     save_list(file, links)

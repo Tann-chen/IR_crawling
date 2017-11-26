@@ -109,7 +109,6 @@ def spimi(input_folder):
                     postings_list[doc_id] += 1  # tf += 1
                 else:
                     postings_list[doc_id] = 1  # add the doc_id into posting list and tf = 1
-
             else:  # a now term in index
                 new_postings_list = {doc_id: 1}
                 postings[token] = new_postings_list
