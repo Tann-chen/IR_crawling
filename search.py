@@ -117,6 +117,7 @@ def get_top_10(origin):
     result = []
     counter = 0
     for doc_id, score in origin.items():
+        get_sentiment_value(doc_id)
         result.append(doc_id)
         counter += 1
         if counter >= 10:
@@ -186,6 +187,12 @@ def search(query):
         print(top_10)
         print('\n')
 
+#
+# def get_sentiment_value(doc_id):
+#     global doc_info
+#
+#     print(doc_info[doc_id][1])
+
 
 if __name__ == '__main__':
 
@@ -193,6 +200,11 @@ if __name__ == '__main__':
         index = pickle.load(f_1)
     with open('doc_info.pickle', 'rb') as f_2:
         doc_info = pickle.load(f_2)
+
+
+
+
+
 
     accumulator = 0
     counter = 0
@@ -206,4 +218,7 @@ if __name__ == '__main__':
     k = 1.7
     b = 0.75
 
-    search('good boy')
+    search('harsh winter conditions')
+    search('good winter conditions')
+    search('poor events')
+
